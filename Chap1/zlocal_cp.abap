@@ -39,3 +39,23 @@ CLASS lcl_airplane IMPLEMENTATION.
             AT pos_l n_o_airplanes LEFT-JUSTIFIED, /.
     ENDMETHOD.
 ENDCLASS.
+
+DATA : r_plane1 TYPE REF TO lcl_airplane,
+       r_plane2 TYPE REF TO lcl_airplane.
+
+START-OF-SELECTION.
+    CREATE OBJECT r_plane1
+        EXPORTING
+            im_name = 'BUSAN'       
+            im_planetype = '747-400'.
+
+r_plane1->display_attributes().
+r_plane2->display_n_o_airplanes().
+
+    CREATE OBJECT r_plane2
+    EXPORTING
+        im_name = 'SEOUL'
+        im_planetype = '747-410'.
+
+r_plane2->display_attributes().
+r_plane2->display_n_o_airplanes().
